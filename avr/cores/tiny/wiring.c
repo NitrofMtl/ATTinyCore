@@ -57,8 +57,13 @@
   #define ToneTimer_Prescale_Index    (0b011)
 #endif
 
-  #define MillisTimer_Prescale_Value  (64)
-  #define ToneTimer_Prescale_Value    (64)
+
+ ////////Make prescale working for all MCU clock
+  //#define MillisTimer_Prescale_Value  (64)
+  //#define ToneTimer_Prescale_Value    (64)
+  #define TIMER_PERSCALER F_CPU/1000000L*64
+  #define MillisTimer_Prescale_Value  (TIMER_PERSCALER)
+  #define ToneTimer_Prescale_Value    (TIMER_PERSCALER)
   
 #else
 
